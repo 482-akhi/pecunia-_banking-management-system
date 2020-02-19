@@ -7,16 +7,7 @@ public class Address {
 	private String state;
 	private String country;
 	private int zipcode;
-	public String getAddressline1() {
-		return addressline1;
-	}
-	public void setAddressline1(String addressline1) {
-		this.addressline1 = addressline1;
-	}
-	public String getAddressline2() {
-		return addressline2;
-	}
-	public Address(String addressline1, String addressline2, String city, String state, String country, int zipcode) {
+	public Address(String addressline1, String addressline2, String city, String state, String country,int zipcode) {
 		super();
 		this.addressline1 = addressline1;
 		this.addressline2 = addressline2;
@@ -29,6 +20,16 @@ public class Address {
 	{
 		super();
 	}
+	public String getAddressline1() {
+		return addressline1;
+	}
+	public void setAddressline1(String addressline1) {
+		this.addressline1 = addressline1;
+	}
+	public String getAddressline2() {
+		return addressline2;
+	}
+	
 	public void setAddressline2(String addressline2) {
 		this.addressline2 = addressline2;
 	}

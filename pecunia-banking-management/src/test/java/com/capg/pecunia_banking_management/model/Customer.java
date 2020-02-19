@@ -4,12 +4,38 @@ import java.util.Date;
 
 public class Customer {
 	private String customerName;
+	private long customerAccountNo;
 	private long customerContact;
 	private long customerAdhar;
 	private String customerPan;
 	private Date CustomerDob;
 	private String customerGender;
 	private Address customerAddress;
+	
+	public Customer(String customerName, long customerAccountNo, long customerContact, long customerAdhar,
+			String customerPan, Date customerDob, String customerGender, Address customerAddress) {
+		super();
+		this.customerName = customerName;
+		this.customerAccountNo = customerAccountNo;
+		this.customerContact = customerContact;
+		this.customerAdhar = customerAdhar;
+		this.customerPan = customerPan;
+		CustomerDob = customerDob;
+		this.customerGender = customerGender;
+		this.customerAddress = customerAddress;
+	}
+
+	public long getCustomerAccountNo() {
+		return customerAccountNo;
+	}
+
+	public void setCustomerAccountNo(long customerAccountNo) {
+		this.customerAccountNo = customerAccountNo;
+	}
+
+	public Customer(String cName, Long cAccnt) {
+		super();
+	}
 	public String getCustomerName() {
 		return customerName;
 	}
@@ -52,11 +78,13 @@ public class Customer {
 	public void setCustomerAddress(Address customerAddress) {
 		this.customerAddress = customerAddress;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((CustomerDob == null) ? 0 : CustomerDob.hashCode());
+		result = prime * result + (int) (customerAccountNo ^ (customerAccountNo >>> 32));
 		result = prime * result + ((customerAddress == null) ? 0 : customerAddress.hashCode());
 		result = prime * result + (int) (customerAdhar ^ (customerAdhar >>> 32));
 		result = prime * result + (int) (customerContact ^ (customerContact >>> 32));
@@ -65,6 +93,7 @@ public class Customer {
 		result = prime * result + ((customerPan == null) ? 0 : customerPan.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -78,6 +107,8 @@ public class Customer {
 			if (other.CustomerDob != null)
 				return false;
 		} else if (!CustomerDob.equals(other.CustomerDob))
+			return false;
+		if (customerAccountNo != other.customerAccountNo)
 			return false;
 		if (customerAddress == null) {
 			if (other.customerAddress != null)
@@ -105,12 +136,15 @@ public class Customer {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
-		return "Customer [customerName=" + customerName + ", customerContact=" + customerContact + ", customerAdhar="
-				+ customerAdhar + ", customerPan=" + customerPan + ", CustomerDob=" + CustomerDob + ", customerGender="
-				+ customerGender + ", customerAddress=" + customerAddress + "]";
+		return "Customer [customerName=" + customerName + ", customerAccountNo=" + customerAccountNo
+				+ ", customerContact=" + customerContact + ", customerAdhar=" + customerAdhar + ", customerPan="
+				+ customerPan + ", CustomerDob=" + CustomerDob + ", customerGender=" + customerGender
+				+ ", customerAddress=" + customerAddress + "]";
 	}
+	
 	
 	
 
